@@ -4,69 +4,78 @@
 
 [![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-purple.svg)](https://vitejs.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
-## ✨ Key Features
+## 📁 Clean & Simple Project Structure
 
-- **🔥 Nutrition & Calorie Tracking**: Real-time circular SVG calorie budget ring with deficit/surplus pacing.
-- **🍛 Indian Foods Database**: Comprehensive library of Indian meals, curries, rotis, snacks, sweets, and beverages with precise portion and gram/cup unit scaling.
-- **📸 QR & Barcode Scanner**: Instant product recognition powered by Open Food Facts and camera scanning.
-- **💧 Smart Hydration Tracker**: Visual 250ml water cups with configurable daily target intake.
-- **🌙 Sleep Quality & Recovery Tracker**: Log bedtimes and wake times with a 7-day SVG duration history graph and simulated wearable sync.
-- **🏋️ Exercise & Workout Tracker**: Activity duration, set/rep counters, yoga poses, MET-based calories burned calculation, and 7-day active duration bar chart.
-- **⚖️ Body Weight Progress**: Log daily weight with trend analysis and interactive progression chart.
-- **🤖 AI Health Coach (Gemini Flash)**: Personalized, encouraging daily wellness advice tailored directly to your logged nutrition, hydration, and sleep habits.
-- **🔐 Frictionless Authentication**: Simple email/password login and one-click demo access with zero SMS/OTP hurdles.
-- **🛠️ Admin Console**: Database management dashboard to browse users, monitor stats, and add/edit food items.
-- **🌓 Dark & Light Mode**: Curated high-contrast themes with glassmorphic cards and vibrant emerald green accents.
+FitLife is organized into clear, decoupled folders:
+
+```
+FitLife/
+├── frontend/             # React 19 + Vite client application
+├── backend/              # Node.js REST API server & microservices
+├── documentation/        # Architecture, API, and setup documentation
+├── scripts/              # Full-stack developer scripts
+├── .env                  # Local environment configuration
+└── package.json          # Root workspace configuration
+```
+
+- 🎨 **[frontend/](file:///Users/ashishgoyal/Downloads/FitLife-main/frontend)**: Contains all React components, styling, Indian food data, and Vite configuration.
+- ⚙️ **[backend/](file:///Users/ashishgoyal/Downloads/FitLife-main/backend)**: Contains the standalone REST API server (`port 5001`), controllers, and services (Gemini AI, OTP dispatch, Google Auth).
+- 📚 **[documentation/](file:///Users/ashishgoyal/Downloads/FitLife-main/documentation)**: Complete project guides and architectural specs.
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/ashishgoyal1k-cell/FitLife.git
-cd FitLife
-```
-
-### 2. Install Dependencies
+### 1. Install Dependencies
+FitLife uses npm workspaces to manage both frontend and backend dependencies:
 ```bash
 npm install
 ```
 
-### 3. (Optional) Configure Gemini API Key
-FitLife includes an automatic built-in Smart Coach fallback. If you want live Google Gemini responses, copy `.env.example` to `.env` and provide your API key:
+### 2. Configure Environment (Optional)
+Copy `.env.example` to `.env` to configure your Gemini API Key or Google Sign-In:
 ```bash
 cp .env.example .env
 ```
-Add your key inside `.env`:
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-```
 
-### 4. Run Development Server
+### 3. Start Both Frontend and Backend Concurrently
+Run this single command from the project root:
 ```bash
 npm run dev
 ```
-Open [http://localhost:5174](http://localhost:5174) in your browser.
 
-### 5. Build for Production
-```bash
-npm run build
-```
+- **Frontend App**: [http://localhost:5174](http://localhost:5174)
+- **Admin Console**: [http://localhost:5174/admin.html](http://localhost:5174/admin.html)
+- **Backend API**: [http://localhost:5001](http://localhost:5001)
 
 ---
 
-## 🛠️ Tech Stack
+## 📖 Documentation Index
 
-- **Frontend**: React 19, Pure JSX (`.jsx`)
-- **Styling**: Modular CSS (`.css`) with CSS custom properties and Glassmorphism
-- **Icons**: Lucide React
-- **Build Tool**: Vite 8
-- **Data Persistence**: HTML5 LocalStorage with modular database abstractions
+For in-depth explanations and developer guides, explore the `documentation/` folder:
+
+- 🏛️ **[Architecture & System Design](file:///Users/ashishgoyal/Downloads/FitLife-main/documentation/ARCHITECTURE.md)**: System diagram, directory breakdown, and data flow.
+- 🔌 **[Backend REST API Reference](file:///Users/ashishgoyal/Downloads/FitLife-main/documentation/API_DOCUMENTATION.md)**: Full API spec for AI Coach, OTPs, and configuration endpoints.
+- 🛠️ **[Setup & Deployment Guide](file:///Users/ashishgoyal/Downloads/FitLife-main/documentation/SETUP_GUIDE.md)**: Local development, production builds, and cloud deployment.
+- ✨ **[Features Overview](file:///Users/ashishgoyal/Downloads/FitLife-main/documentation/FEATURES_OVERVIEW.md)**: Detailed walkthrough of food tracking, hydration, sleep, workouts, and AI coach.
+
+---
+
+## 🛠️ Individual Commands
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Runs backend (:5001) and frontend (:5174) concurrently |
+| `npm run dev:frontend` | Runs only the Vite frontend dev server |
+| `npm run dev:backend` | Runs only the Node.js backend server |
+| `npm run build` | Builds optimized frontend bundle into `frontend/dist/` |
+| `npm run lint` | Runs the Oxlint linter on frontend code |
+| `npm start` | Starts the production backend server |
 
 ---
 
